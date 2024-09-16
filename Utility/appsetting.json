@@ -1,0 +1,8 @@
+{
+  "Jwt": {
+    "Key": "MilkWala",
+    "Issuer": "YourIssuer",
+    "Audience": "YourAudience",
+    "ExpireMinutes": 60
+  }
+}
