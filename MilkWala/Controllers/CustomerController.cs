@@ -31,8 +31,18 @@ namespace MilkWala.Controllers
         [HttpPost("AddOrUpdateCustomer")]
         public async Task<ApiResponse> AddOrUpdateCustomer(CustomerReqViewModel customer)
         {
-            bool customers = await _customerRepository.AddOrUpdateCustomer(customer);
-            return new ApiResponse(customers ? 200 : 404, customers, customer.Id != null ? "Record Updated Successfully" : "Record Added Successfully");
+            try
+            {
+                bool customers = await _customerRepository.AddOrUpdateCustomer(customer);
+                return new ApiResponse(customers ? 200 : 404, customers, customer.Id != null ? "Record Updated Successfully" : "Record Added Successfully");
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse(400,false,"something went wrong");
+            }
+            finally
+            {
+            }
         }
 
         [HttpGet("DeleteCustomer")]
