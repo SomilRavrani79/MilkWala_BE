@@ -38,7 +38,7 @@ namespace MilkWala.Controllers
             }
             catch (Exception ex)
             {
-                return null;
+                return new ApiResponse(400,false,"something went wrong");
             }
             finally
             {
